@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mụt món quà nhỏ cho ebe iuu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;500&display=swap');
+        
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #0a000d; 
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; 
+            font-family: 'Quicksand', sans-serif;
+            color: #ffcccc; 
+        }
+
+        .snow {
+            position: absolute;
+            width: 10px; height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none; 
+            animation: fall linear infinite;
+            filter: blur(1px);
+            z-index: 5; 
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(110vh) translateX(50px); opacity: 0; }
+        }
+
+        .welcome-box {
+            text-align: center;
+            animation: fadeIn 3s ease-in;
+            z-index: 10; 
+            position: relative;
+        }
+
+        .romantic-message-box {
+            background: rgba(30, 0, 15, 0.8); 
+            border: 1px solid rgba(255, 128, 171, 0.3); 
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(255, 0, 64, 0.2);
+            max-width: 600px;
+            width: 90vw; 
+            transform: scale(0.8) translateY(20px);
+            opacity: 0;
+            animation: scaleIn 1.5s forwards 1s, fadeInText 1.5s forwards 1s; 
+            backdrop-filter: blur(5px);
+        }
+
+        .romantic-message-box p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #fceea7;
+            margin: 0;
+            text-align: left; 
+        }
+        
+        .romantic-message-box .great-vibes {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #ffebf0; 
+            text-shadow: 0 0 10px rgba(255, 235, 240, 0.5);
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .heart-btn {
+            background: none; border: none; cursor: pointer;
+            position: relative; transition: transform 0.3s;
+            z-index: 1; 
+            display: inline-block;
+        }
+
+        .heart-btn:hover { transform: scale(1.2) rotate(5deg); }
+
+        .heart-btn svg {
+            filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.8)); 
+        }
+
+        .glow {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(255,0,64,0.5) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; animation: pulseGlow 2s infinite;
+            z-index: 0; 
+        }
+
+        h3 { 
+            color: #ff80ab; font-weight: 300; letter-spacing: 2px;
+            margin-top: 20px; font-family: 'Quicksand', sans-serif; font-size: 1.1rem;
+            animation: fadeInText 1s forwards 3.5s; 
+            opacity: 0;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.8) translateY(20px); }
+            to { transform: scale(1) translateY(0); }
+        }
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-box">
+        <div class="romantic-message-box">
+            <p>
+                Hello béiu của anh nhaaaa.<br>
+                Xin lỗi em vì gửi quà muộn như này.<br>
+                Anh không biết liệu nó có khiến em vui vẻ hơn khum, nhưng mà anh vẫn mong em thật bình tĩnh khi mở nó nhaaa hehe.<br><br>
+                <strong>Hướng dẫn ebe nè:</strong><br>
+                ✨ Khi mở ra nhớ chọn <b>Cho phép Camera</b> nha.<br>
+                🖐️ <b>Xòe tay:</b> Có bấc ngờ và xoay được góc nhìn.<br>
+                ✊ <b>Nắm tay:</b> Các hạt sẽ kết lại thành hình siêu đẹpp.<br>
+                🤏 <b>Chụm ngón tay:</b> Phóng to một bức ảnh ngẫu nhiên.<br><br>
+                Hhue nhớ xem chán mới được mở thư đếyyy ạaa.<br>
+                <span class="great-vibes">— Từ ngừi làm hhue bùnnn.... —</span>
+            </p>
+        </div>
+
+        <div class="glow"></div>
+        <button class="heart-btn" id="startBtn" onclick="startJourney()">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="#ff0040">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </button>
+        <h3>Chạm vào trái tim để bắt đầu nèee</h3>
+    </div>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="./hhuepart1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snow');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's'; 
+            snowflake.style.animationDelay = (Math.random() * 5) + 's'; 
+            snowflake.style.opacity = Math.random();
+            const size = (Math.random() * 5 + 3) + 'px';
+            snowflake.style.width = size;
+            snowflake.style.height = size;
+            document.body.appendChild(snowflake);
+
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        setInterval(createSnowflake, 200); 
+        function startJourney() {
+            music.play().catch(err => console.log("Audio play failed", err));
+            
+            document.body.style.transition = "opacity 1.5s ease"; 
+            document.body.style.opacity = "0";
+            
+            setTimeout(() => {
+                window.location.href = "main.html"; 
+            }, 1500); 
+        }
+        document.body.addEventListener('click', function() {
+            music.play();
+        }, { once: true });
+    </script>
+</body>
+</html>
